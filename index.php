@@ -1,11 +1,8 @@
 <?php
-include 'database.php';
+include 'functions.php';
 
-$sql = "SELECT idbestemming, plaats, land, werelddeel FROM bestemming";
-$stmt = $pdo->query($sql);
-$bestemmingen = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$bestemmingen = getBestemmingen($pdo);
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>

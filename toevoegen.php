@@ -1,16 +1,13 @@
 <?php
-include 'database.php';
+include 'functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idbestemming = $_POST['idbestemming'];
+    $id = $_POST['idbestemming'];
     $plaats = $_POST['plaats'];
     $land = $_POST['land'];
     $werelddeel = $_POST['werelddeel'];
 
-    $sql = "INSERT INTO bestemming (idbestemming, plaats, land, werelddeel) VALUES (?, ?, ?, ?)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$idbestemming, $plaats, $land, $werelddeel]);
-
+    voegBestemmingToe($pdo, $id, $plaats, $land, $werelddeel);
     header('Location: index.php');
     exit;
 }

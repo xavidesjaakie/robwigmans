@@ -1,10 +1,8 @@
 <?php
-include 'database.php';
+include 'functions.php';
 $id = $_GET['id'];
 
-
-$stmt = $pdo->prepare("DELETE FROM bestemming WHERE idbestemming = ?");
-$stmt->execute([$id]);
+verwijderBestemming($pdo, $id);
 
 header('Location: index.php');
 exit;
