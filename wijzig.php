@@ -1,17 +1,16 @@
-
-
 <?php
 include 'database.php';
 $id = $_GET['id'];
-$fiets = $pdo->query("SELECT * FROM product WHERE id = $id")->fetch(PDO::FETCH_ASSOC);
+$bestemming = $pdo->query("SELECT * FROM bestemming WHERE idbestemming = '$id'")->fetch(PDO::FETCH_ASSOC);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $naam = $_POST['naam'];
-    $prijs = $_POST['prijs'];
+    $plaats = $_POST['plaats'];
+    $land = $_POST['land'];
+    $werelddeel = $_POST['werelddeel'];
     
-    $sql = "UPDATE product SET naam = ?, prijs = ? WHERE id = ?";
+    $sql = "UPDATE bestemming SET plaats = ?, land = ?, werelddeel = ? WHERE idbestemming = ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$naam, $prijs, $id]);
+    $stmt->execute([$plaats, $land, $werelddeel, $id]);
 
     header('Location: index.php');
     exit;
@@ -19,9 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <form method="POST">
-    <label>Naam:</label>
-    <input type="text" name="naam" value="<?= htmlspecialchars($fiets['naam']) ?>" required>
-    <label>Prijs:</label>
-    <input type="number" name="prijs" value="<?= htmlspecialchars($fiets['prijs']) ?>" required>
+    <label>Plaats:</label>
+    <input type="text" name="plaats" value="<?= htmlspecialchars($bestemming['plaats']) ?>" required>
+    
+    <label>Land:</label>
+    <input type="text" name="land" value="<?= htmlspecialchars($bestemming['land']) ?>" required>
+    
+    <label>Werelddeel:</label>
+    <input type="text" name="werelddeel" value="<?= htmlspecialchars($bestemming['werelddeel']) ?>" required>
+    
     <button type="submit">Wijzigen</button>
 </form>

@@ -1,7 +1,7 @@
 <?php
 
 $host = 'localhost';
-$dbname = 'fietsen';
+$dbname = 'toetsdatabase2';
 $user = 'root'; 
 $pass = ''; 
 
