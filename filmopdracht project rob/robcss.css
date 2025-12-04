@@ -1,0 +1,331 @@
+/* robcss.css */
+/* === ALGEMENE STYLING === */
+body {
+    background-color: #5a46a0;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* === NAVBAR === */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7a63d1;
+    padding: 10px 30px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons a {
+    background-color: #249ea4;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.nav-buttons a:hover {
+    background-color: #1e7f82;
+}
+
+/* === FORMULIEREN ALGEMEEN === */
+form {
+    background: #150078;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #249ea4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+form button:hover {
+    background-color: #1e7f82;
+}
+
+/* === FILMKAARTEN === */
+.films-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.film-card {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    height: 220px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    background-color: #150078;
+    cursor: pointer;
+    transition: transform 0.25s;
+}
+
+.film-card:hover {
+    transform: scale(1.02);
+}
+
+.film-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #100066;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.film-card:hover .film-image {
+    transform: scale(1.05);
+}
+
+.film-title {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    z-index: 2;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* === FILM OVERLAY === */
+.film-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 0, 60, 0.88);
+    color: #fff;
+    padding: 25px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    z-index: 3;
+    pointer-events: auto;
+}
+
+.film-card:hover .film-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === ACTEURSELECTIE === */
+.acteur-selectie {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Dropdown en tekstveld even breed */
+.acteur-selectie select,
+.acteur-selectie input[type="text"] {
+    flex: 1;
+    width: 50%;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #2c2080;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.acteur-selectie input::placeholder {
+    color: #bbb;
+}
+
+/* Focusstijl */
+.acteur-selectie select:focus,
+.acteur-selectie input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #00bcd4;
+    background-color: #3a2ca0;
+}
+
+/* ❌ Verwijderknop klein houden */
+.acteur-selectie button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: auto;
+    min-width: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.acteur-selectie button:hover {
+    background-color: darkred;
+}
+
+/* === BEWERKFORMULIER === */
+.bewerk-blok {
+    position: relative;
+    z-index: 9999;
+    background-color: #1b0a80;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 10px;
+    animation: slideDown 0.3s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === BUTTONS === */
+.btn {
+    background: #2ecc71;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #27ae60;
+}
+
+.btn-secondary {
+    background: #555;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #333;
+}
+
+/* === BEHEER HEADER === */
+.beheer-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.beheer-header .btn {
+    font-size: 18px;
+    padding: 10px 25px;
+}
+
+/* === AANMAAKFORMULIER ANIMATIE === */
+#aanmaak-form {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === TABELLEN (MijnInfo.php) === */
+table {
+    width: 60%;
+    margin: 30px auto;
+    background: #150078;
+    border-radius: 10px;
+    padding: 10px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    text-align: left;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 700px) {
+    .film-card {
+        width: 95%;
+        height: auto;
+    }
+
+    .film-overlay {
+        padding: 15px;
+        text-align: center;
+    }
+
+    form {
+        width: 95%;
+    }
+
+    .acteur-selectie {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acteur-selectie select,
+    .acteur-selectie input[type="text"] {
+        width: 100%;
+    }
+
+    .acteur-selectie button {
+        width: 100%;
+        margin-top: 6px;
+    }
+}

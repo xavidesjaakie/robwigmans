@@ -1,0 +1,47 @@
+Acteur
+
+attributen:
+
+acteur_id : int
+
+acteurnaam : string
+
+methoden:
+
+getFilms()
+
+addActeur()
+
+Film
+
+attributen:
+
+film_id : int
+
+filmnaam : string
+
+genre : string
+
+methoden:
+
+getActeurs()
+
+addFilm()
+
+updateFilm()
+
+FilmActeur (koppelt Film en Acteur)
+
+attributen:
+
+film_id : int
+
+acteur_id : int
+
+rol : string
+
+methoden:
+
+addKoppeling()
+
+updateRol()
