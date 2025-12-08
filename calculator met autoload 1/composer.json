@@ -1,0 +1,16 @@
+{
+    "name": "xxvan/calculatorzonderautoload",
+    "description": "composer dump-autoload",
+    "autoload": {
+        "psr-4": {
+            "Xxvan\\Calculatorzonderautoload\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "xavidesjaakie",
+            "email": "kakerkak11@gmail.com"
+        }
+    ],
+    "require": {}
+}
